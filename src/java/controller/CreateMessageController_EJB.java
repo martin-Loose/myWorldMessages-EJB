@@ -41,7 +41,7 @@ public String prepareMessage(int myID, int receiverID,String receiverName){
     setReceiver(receiverName);
     setZeichen(maxZeichen);
     
- return "/secured/user/messages/messagesIndex?faces-redirect=true";
+ return "/secured/user/messages/createMessage?faces-redirect=true";
 }
 
    
