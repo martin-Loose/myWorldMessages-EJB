@@ -98,12 +98,23 @@ public class MessageViews_EJB {
         return selectedMessage;
     }
 
-    public void setSelectedMessage(int id) {
+    public String setSelectedMessage(int id) {
         this.selectedMessage = messagesFacade.find(id);
-        setAbsender("dummy");
-        
+        String return1="messageDetail?faces-redirect=true";
+        String return2="target=\"_blank";
+              return  return1 + " "+return2;  
     }
-
+     public String ViewSelectedMessage(int id) {
+        this.selectedMessage = messagesFacade.find(id);
+        String return1="messageDetail?faces-redirect=true";
+        String return2="target=\"_blank";
+              return  return1 + " "+return2;  
+    }
+public void deleteSelectedMessage(int id){
+ this.selectedMessage = messagesFacade.find(id);
+ messagesFacade.remove(selectedMessage);
+    System.err.println("deletetest");
+}
     public int getInbox() {
         return inbox;
     }
