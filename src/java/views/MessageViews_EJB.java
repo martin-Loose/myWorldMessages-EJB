@@ -29,6 +29,7 @@ public class MessageViews_EJB {
  private int myID;
  private String absender;
  List<Messages>lstInbox=new ArrayList<>();
+ private Messages newMEss=new Messages();
  @Inject
  private MessagesFacadeLocal messagesFacade;
 
@@ -98,11 +99,9 @@ public class MessageViews_EJB {
         return selectedMessage;
     }
 
-    public String setSelectedMessage(int id) {
+    public void setSelectedMessage(int id) {
         this.selectedMessage = messagesFacade.find(id);
-        String return1="messageDetail?faces-redirect=true";
-        String return2="target=\"_blank";
-              return  return1 + " "+return2;  
+       
     }
      public String ViewSelectedMessage(int id) {
         this.selectedMessage = messagesFacade.find(id);
@@ -110,10 +109,22 @@ public class MessageViews_EJB {
         String return2="target=\"_blank";
               return  return1 + " "+return2;  
     }
-public void deleteSelectedMessage(int id){
- this.selectedMessage = messagesFacade.find(id);
+public String deleteSelectedMessage(int id){
+    
+    try{
+    if(id>0){
+     this.selectedMessage = messagesFacade.find(id);
+     System.err.println("id message? "+getSelectedMessage().getBetreff());
  messagesFacade.remove(selectedMessage);
-    System.err.println("deletetest");
+        
+ getMyList();
+ 
+    }
+    }catch(Exception e){
+        System.err.println("error: "+e.getMessage());
+    }
+
+    return "messagesList.xhtml?faces-redirect=true";
 }
     public int getInbox() {
         return inbox;
@@ -161,6 +172,14 @@ public void deleteSelectedMessage(int id){
 
     public void setAbsender(String absender) {
         this.absender = absender;
+    }
+
+    public Messages getNewMEss() {
+        return newMEss;
+    }
+
+    public void setNewMEss(Messages newMEss) {
+        this.newMEss = newMEss;
     }
  
  

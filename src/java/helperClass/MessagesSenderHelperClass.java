@@ -16,6 +16,9 @@ public class MessagesSenderHelperClass {
     private Date sendDate;
     private String title;
     private int messageID;
+    private boolean isRead;
+    private boolean toDelete;
+    
 
     public MessagesSenderHelperClass() {
     }
@@ -50,6 +53,22 @@ public class MessagesSenderHelperClass {
 
     public void setMessageID(int messageID) {
         this.messageID = messageID;
+    }
+
+    public boolean isIsRead() {
+        return isRead;
+    }
+
+    public void setIsRead(boolean isRead) {
+        this.isRead = isRead;
+    }
+
+    public boolean isToDelete() {
+        return toDelete;
+    }
+
+    public void setToDelete(boolean toDelete) {
+        this.toDelete = toDelete;
     }
     
     

@@ -44,7 +44,9 @@ public String prepareMessage(int myID, int receiverID,String receiverName){
  return "/secured/user/messages/createMessage?faces-redirect=true";
 }
 
+   public void prepareCreateMessage(){
    
+   }
 public void send(){
     try{
     messages=new Messages();
