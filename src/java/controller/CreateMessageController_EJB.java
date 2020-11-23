@@ -43,7 +43,14 @@ public String prepareMessage(int myID, int receiverID,String receiverName){
     
  return "/secured/user/messages/createMessage?faces-redirect=true";
 }
-
+public String prepareChatRequest(int myID, int receiverID,String chatroomName){
+    setMyID(myID);
+    setReceiverID(receiverID);
+    setTitel(chatroomName);
+    setZeichen(maxZeichen);
+    
+ return "/secured/user/messages/createMessage?faces-redirect=true";
+}
    public void prepareCreateMessage(){
    
    }
